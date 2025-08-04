@@ -1,0 +1,14 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.std_logic_unsigned.all;
+
+ENTITY lab2 IS 
+PORT (
+x: std_logic_vector(3 downto 0);
+f : OUT STD_LOGIC );
+end lab2;
+
+ARCHITECTURE Behaviour OF lab2 IS
+BEGIN
+f <= (not x(1) and not x(2) and x(3)) OR(x(1) and x(2) and not x(4)) OR(x(1) and not x(3) and x(4));
+		END Behaviour;

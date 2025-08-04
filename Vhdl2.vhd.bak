@@ -1,0 +1,17 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+ENTITY lab2 IS
+PORT (
+    x1, x2, x3, x4 : IN STD_LOGIC;  -- x1=MSB (A), x4=LSB (D)
+    f : OUT STD_LOGIC
+);
+END lab2;
+
+ARCHITECTURE Behavior OF lab2 IS
+BEGIN
+    f <= (not x1 and x2 and  not x3) OR      -- A'B'C (minterms 2,3)
+         (x2 and not x3 and x4) OR          -- ABD' (minterms 12,14)
+         (x1 and x3 and not x4) OR 
+			( not x1 and not x2 and x3 and not x4);            -- AC'D (minterms 9,13)
+END Behavior;
